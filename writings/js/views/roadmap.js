@@ -26,14 +26,30 @@ const PH=[
 ['Script certificates','SHA-256 fingerprint registration that expires if the script is edited',D],
 ['Advanced PDF export','Paper size, margins, scene range, numbering and watermark',D],
 ['13 export formats','Final Draft (.fdx), Fountain, Word, RTF, HTML, Markdown, CSV, Excel and more',D],
-['Script library','Seven landmark screenplays built into Pines, ready to read and study beside your own work',D,[
-['The Godfather','Mario Puzo & Francis Ford Coppola',124],
-['Titanic','James Cameron',182],
-['Interstellar','Jonathan Nolan & Christopher Nolan',151],
-['The Dark Knight Rises','Jonathan Nolan & Christopher Nolan',162],
-['Joker','Todd Phillips & Scott Silver',104],
-['12 Angry Men','Reginald Rose',149],
-['(500) Days of Summer','Brent Dunham',112]]]]},
+
+['Script library','Public-domain and original screenplays built into Pines, ready to read and study beside your own work',D,[
+['A Scandal in Bohemia','Arthur Conan Doyle (adapted)',3],
+['The Tell-Tale Heart','Edgar Allan Poe (adapted)',3],
+['The Most Dangerous Game','Richard Connell (adapted)',3],
+['The Necklace','Guy de Maupassant (adapted)',3],
+['Kannagi\'s Justice','Tamil epic Silappatikaram (adapted)',3],
+['Vikram and the Vetala','Traditional folk tale (adapted)',3],
+['Kabuliwala','Rabindranath Tagore (adapted)',3],
+['Dr. Jekyll and Mr. Hyde','Robert Louis Stevenson (adapted)',3],
+['Treasure Island: The Map','Robert Louis Stevenson (adapted)',3],
+['The Time Machine','H. G. Wells (adapted)',3],
+['Macbeth: The Prophecy','William Shakespeare (adapted)',3],
+['Tenali Raman and the Thieves','Traditional folk tale (adapted)',3],
+['The Crows and the Black Snake','Panchatantra (adapted)',3],
+['A Christmas Carol: Marley\'s Ghost','Charles Dickens (adapted)',3],
+['The Count of Monte Cristo: The Escape','Alexandre Dumas (adapted)',3]]]]},
+
+
+
+   
+
+
+   
 {k:'04',t:'Safe & Sound',s:'Your work, protected',d:'Private by default, with backups you control.',i:[
 ['Daily snapshots','An automatic backup of everything, once a day',D],
 ['Folder & Google Drive backup','Scheduled backups to a folder or to Drive',D],

@@ -1,0 +1,13 @@
+/* ============================================================
+   Pines · scenes-toggle.css
+   Write tab: Scenes panel collapse / expand
+   ============================================================ */
+
+/* Write tab: Scenes panel collapse / expand */
+.scene-nav-head{display:flex;align-items:center;justify-content:space-between;gap:7px;margin-bottom:8px}
+.scene-nav-head h4{margin:0}
+.scene-nav-toggle{width:29px;height:29px;flex:none}
+.wr.scenes-collapsed{grid-template-columns:48px minmax(0,1fr)}
+.wr.scenes-collapsed .nvp{overflow:hidden;padding:8px 4px}
+.wr.scenes-collapsed .scene-nav-head{justify-content:center;margin-bottom:0}
+.wr.scenes-collapsed .scene-nav-head h4,.wr.scenes-collapsed #nvl{display:none}

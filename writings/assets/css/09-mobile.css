@@ -1,0 +1,78 @@
+/* ============================================================
+   Pines · mobile.css
+   Mobile and touch polish
+   ============================================================ */
+
+/* ===== Pines — mobile & touch polish (loaded last) ===== */
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+:root:root:root body{overscroll-behavior-y:contain;-webkit-touch-callout:none}
+:root:root:root button,:root:root:root .nv,:root:root:root .ni,:root:root:root .scr-card,:root:root:root .tabs,:root:root:root .tools{-webkit-user-select:none;user-select:none;touch-action:manipulation}
+:root:root:root .b,:root:root:root input,:root:root:root textarea,:root:root:root select{-webkit-user-select:text;user-select:text}
+#app{min-height:100vh;min-height:100dvh}
+@media(min-width:801px){:root:root:root .sb{height:100vh;height:100dvh}}
+
+@media(max-width:800px){
+  /* performance: calmer, cheaper effects on phones */
+  :root:root:root body::before{width:380px;height:380px;right:-140px;top:-140px;animation:none;translate:none}
+  :root:root:root body::after{width:340px;height:340px;left:-130px;bottom:-130px;animation:none;translate:none}
+  :root:root:root .scr-cover::before{animation:none}
+  :root:root:root .hero,:root:root:root .rw-header,:root:root:root .schedule-heading,:root:root:root .pdf-studio-head,:root:root:root .legal-intro,:root:root:root .legal-subhead,:root:root:root .legal-editor-head,:root:root:root .registration-intro,:root:root:root .details-heading{animation:rise .6s cubic-bezier(.2,.8,.2,1) backwards}
+  :root:root:root .top{backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+  :root:root:root .pri,:root:root:root .hero .pri{animation:none}
+
+  /* bottom navigation: swipeable, snap, no scrollbar, safe-area aware */
+  :root:root:root .sb{scroll-snap-type:x proximity;scrollbar-width:none;-webkit-overflow-scrolling:touch;gap:2px;box-shadow:0 -10px 30px -18px #0b4a3566;padding-left:max(6px,env(safe-area-inset-left,0px));padding-right:max(6px,env(safe-area-inset-right,0px))}
+  :root:root:root .sb::-webkit-scrollbar{display:none}
+  :root:root:root .sb .nv{scroll-snap-align:center;flex:1 0 auto;width:auto;min-height:48px;min-width:64px}
+  :root:root:root .sb .nv.on{background:#fff}
+
+  /* comfortable touch targets */
+  :root:root:root button,:root:root:root .ib{min-height:42px}
+  :root:root:root .ib{min-width:42px}
+  :root:root:root .ni{min-height:44px}
+  :root:root:root .pdf-check,:root:root:root .rvg label,:root:root:root .tabs button{min-height:44px}
+  :root:root:root input[type=checkbox],:root:root:root input[type=radio]{width:20px;height:20px}
+  :root:root:root .sw{width:48px;height:28px}
+  :root:root:root .tabs{scrollbar-width:none;scroll-snap-type:x proximity;margin-left:-12px;margin-right:-12px;padding:0 12px 4px}
+  :root:root:root .tabs::-webkit-scrollbar{display:none}
+  :root:root:root .tabs button{flex:0 0 auto;scroll-snap-align:start}
+
+  /* layout safety */
+  :root:root:root .ct{padding-left:max(12px,env(safe-area-inset-left,0px));padding-right:max(12px,env(safe-area-inset-right,0px));padding-bottom:calc(104px + env(safe-area-inset-bottom,0px))}
+  :root:root:root .top{padding-top:max(10px,env(safe-area-inset-top,0px))}
+  :root:root:root .st4{gap:10px}
+  :root:root:root .lib-head{margin-top:20px}
+  :root:root:root .lib-head .pri{width:100%}
+  :root:root:root .scr-actions button{min-height:38px}
+  :root:root:root .acts{flex-direction:column-reverse}
+  :root:root:root .acts button{width:100%}
+  :root:root:root .wrap,:root:root:root .edr-table-wrap,:root:root:root .sch-table-wrap{-webkit-overflow-scrolling:touch}
+  :root:root:root .toast{max-width:calc(100vw - 32px);text-align:center}
+  :root:root:root .md{max-height:92dvh;overscroll-behavior:contain}
+  :root:root:root .pad{grid-template-columns:repeat(3,min(72px,22vw))}
+  :root:root:root .pad button{height:min(64px,18vw)}
+  :root:root:root .lkc{padding:30px 22px 22px}
+  :root:root:root .code{font-size:28px;letter-spacing:.1em}
+  :root:root:root .rw{gap:10px}
+}
+@media(max-width:420px){
+  :root:root:root .st4{grid-template-columns:1fr 1fr}
+  :root:root:root .hero h2{font-size:22px}
+  :root:root:root .top h1{font-size:16px;max-width:55vw}
+  :root:root:root .scr-metrics{gap:4px}
+  :root:root:root .details-snapshot b{font-size:19px}
+}
+/* phones in landscape: keep the bottom bar slim */
+@media(max-width:900px) and (max-height:480px){
+  :root:root:root .sb .nv{min-height:40px;flex-direction:row;gap:6px}
+  :root:root:root .ct{padding-bottom:70px}
+  :root:root:root .md{max-height:96dvh}
+}
+/* touch devices: no sticky hover states */
+@media(hover:none){
+  :root:root:root .sb .nv:hover{transform:none;background:transparent}
+  :root:root:root .sb .nv.on:hover{background:#fff}
+  :root:root:root .pr:hover,:root:root:root .rw-report:hover,:root:root:root .ni:hover,:root:root:root .pdf-check:hover{transform:none}
+  :root:root:root .chip:hover{transform:none}
+  :root:root:root button:active{transform:scale(.97)}
+}

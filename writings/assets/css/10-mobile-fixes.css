@@ -1,0 +1,39 @@
+/* ============================================================
+   Pines · mobile-fixes.css
+   Mobile fixes (three small patches, in original order)
+   ============================================================ */
+
+/* ===== mobile fixes from on-device-size testing ===== */
+@media(max-width:800px){
+  /* summary cards: two per row, compact */
+  :root:root:root .schedule-summary,:root:root:root .rw-stats,:root:root:root .details-snapshot{grid-template-columns:1fr 1fr!important;gap:10px}
+  :root:root:root .schedule-summary>div,:root:root:root .rw-stat{padding:14px 12px 12px!important}
+  :root:root:root .schedule-summary>div:hover,:root:root:root .rw-stat:hover{transform:none}
+  :root:root:root .rw-stats{border:0}
+  :root:root:root .rw-stat{border:1px solid var(--bd)!important;border-radius:12px;box-shadow:none}
+  :root:root:root .rw-stat strong,:root:root:root .schedule-summary b{font-size:24px!important}
+  :root:root:root .rw-section-tag,:root:root:root .rw-eyebrow{margin-bottom:6px}
+  /* script page: drop the margin rule that cuts through text */
+  :root:root:root .page{background-image:none}
+  /* nav active indicator: a slim bar under the icon, not a dot */
+  :root:root:root .sb .nv.on::before{left:28%;right:28%;width:auto;top:auto;bottom:2px;height:3px;border-radius:3px}
+  /* compact project header */
+  :root:root:root .project-top{gap:6px 8px}
+  :root:root:root .project-top .sp{display:none}
+  :root:root:root .project-top-title{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  :root:root:root .top .ib{min-height:38px;min-width:38px;padding:6px}
+  :root:root:root .top-mini-stats{width:100%;order:5}
+  :root:root:root .top .pri{margin-left:auto}
+}
+
+
+@media(max-width:800px){
+  :root:root:root .tabs{scroll-padding:0 12px}
+  :root:root:root .rw:has(.sw){flex-wrap:nowrap}
+  :root:root:root .rw .sw{margin-left:auto;margin-right:4px}
+  :root:root:root .pdf-studio-head>.chip{align-self:flex-start}
+  :root:root:root .rw>div:first-child{min-width:0;flex:1}
+}
+
+
+@media(max-width:800px){:root:root:root .hero h2{background:none;animation:none;padding:0;margin-left:0}}

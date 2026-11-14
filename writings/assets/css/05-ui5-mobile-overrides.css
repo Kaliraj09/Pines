@@ -1,0 +1,17 @@
+/* ============================================================
+   Pines · ui5-mobile-overrides.css
+   Mobile overrides
+   ============================================================ */
+
+/* mobile overrides that my first pass accidentally cancelled */
+@media(max-width:800px){.top h1{font-size:18px}.stc{padding:14px 12px 12px}.stc b{font-size:26px}}
+@media(max-width:600px){.md{border-radius:26px 26px 0 0}.fmts{grid-template-columns:1fr 1fr}.hero .pri{width:100%}}
+@media(max-width:380px){.fmts{grid-template-columns:1fr}}
+/* sticky preview must clear the sticky top bar */
+.legal-preview-section{top:calc(var(--th,62px) + 14px)}
+/* readable in dark mode */
+.sgb button:hover{color:var(--on)}
+.sgb button.t:hover{background:#f3dd9d;color:#5a3d00}
+/* don't clip focus rings on rounded cards */
+.rw-report{border-radius:0}
+.legal-template-open,.legal-choice em{pointer-events:none}

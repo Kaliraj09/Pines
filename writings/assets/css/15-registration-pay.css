@@ -1,0 +1,56 @@
+/* ============================================================
+   Pines · registration-pay.css
+   Registration / payment popup
+   ============================================================ */
+
+.pay-stage,.pay-ok{text-align:center;padding:22px 6px 6px}
+.pay-ring{position:relative;width:112px;height:112px;margin:0 auto 16px}
+.pay-ring>svg{width:100%;height:100%;transform:rotate(-90deg);animation:paySpin 1.1s linear infinite}
+.pay-track{fill:none;stroke:var(--bd);stroke-width:7}
+.pay-arc{fill:none;stroke:var(--ac);stroke-width:7;stroke-linecap:round;stroke-dasharray:90 240}
+.pay-core{position:absolute;inset:0;display:grid;place-items:center;color:var(--ac)}
+.pay-core .ic{animation:payPulse 1.2s ease-in-out infinite}
+.pay-title{font-size:18px;margin:0 0 4px}
+.pay-sub{font-size:12px;color:var(--mut);min-height:18px;margin:0 0 16px}
+.pay-steps{list-style:none;margin:0 auto;padding:0;display:grid;gap:9px;max-width:250px;text-align:left}
+.pay-steps li{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--mut);transition:color .3s}
+.pay-steps i{width:18px;height:18px;border-radius:50%;border:2px solid var(--bd);display:grid;place-items:center;flex:none;box-sizing:border-box;transition:background .3s,border-color .3s}
+.pay-steps li.on,.pay-steps li.done{color:var(--fg)}
+.pay-steps li.on i{border-color:var(--ac);border-top-color:transparent;animation:paySpin2 .7s linear infinite}
+.pay-steps li.done i{background:var(--ac);border-color:var(--ac);animation:none}
+.pay-steps li.done i::after{content:"";width:4px;height:8px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg) translate(-1px,-1px)}
+.pay-burst{position:relative;width:96px;height:96px;margin:6px auto 18px;display:grid;place-items:center}
+.pay-burst>span{position:absolute;inset:0;border-radius:50%;border:2px solid var(--ac);opacity:0;animation:payWave 1.7s ease-out .2s backwards}
+.pay-burst>span:nth-child(2){animation-delay:.5s}.pay-burst>span:nth-child(3){animation-delay:.8s}
+.pay-check{position:relative;width:96px;height:96px;border-radius:50%;background:linear-gradient(150deg,#3fd09b,#14835c);box-shadow:0 14px 30px -12px #0b4a35aa;display:grid;place-items:center;animation:payPop .6s cubic-bezier(.2,1.4,.4,1) backwards}
+.pay-check svg{width:62px;height:62px}
+.pc-circ{fill:none;stroke:#ffffff55;stroke-width:2}
+.pc-tick{fill:none;stroke:#fff;stroke-width:4.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:40;animation:payTick .5s ease-out .45s backwards}
+.pay-ok h2{margin:0 0 4px;animation:payUp .5s var(--e) .6s backwards}
+.pay-amt{margin:0;font-weight:600;color:var(--ac);animation:payUp .5s var(--e) .68s backwards}
+.pay-meta{display:grid;margin:16px 0 14px;border:1px solid var(--bd);border-radius:14px;overflow:hidden;text-align:left;animation:payUp .5s var(--e) .76s backwards}
+.pay-meta div{display:flex;justify-content:space-between;gap:12px;padding:10px 14px;font-size:12px;border-top:1px solid var(--bd)}
+.pay-meta div:first-child{border-top:0}
+.pay-meta span{color:var(--mut);flex:none}.pay-meta b{font-weight:600;text-align:right;word-break:break-word}
+button.reg-seal{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:9px 16px 9px 9px;border-radius:99px;border:0!important;background:linear-gradient(135deg,#35c28f,#14835c)!important;color:#fff!important;font-weight:600;font-size:13px;cursor:pointer;box-shadow:0 10px 22px -12px #0b4a35cc;position:relative;overflow:hidden;animation:payUp .5s var(--e) .84s backwards}
+button.reg-seal .ic{background:#ffffff33;border-radius:50%;padding:4px;box-sizing:content-box}
+button.reg-seal::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,#ffffff55 50%,transparent 70%);transform:translateX(-100%);animation:payShine 2.6s ease-in-out 1.4s infinite;pointer-events:none}
+button.reg-seal:hover{transform:translateY(-2px)}
+.registration-record button.reg-seal{font-size:11px;padding:5px 11px 5px 6px;animation:none}
+.registration-record button.reg-seal .ic{padding:3px}
+.reg-top-right{align-items:flex-end}
+.pay-actions,.cert-actions{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:12px}
+.pay-actions{animation:payUp .5s var(--e) .92s backwards}
+.pay-actions button,.cert-actions button{flex:1 1 120px}
+.cert-view h3{margin:6px 0 12px}
+.cert-img{display:block;width:100%;height:auto;border-radius:12px;border:1px solid var(--bd);box-shadow:var(--sh);animation:payUp .5s var(--e) backwards}
+.md:has(.cert-view){max-width:min(780px,96vw)}
+@keyframes paySpin{to{transform:rotate(270deg)}}
+@keyframes paySpin2{to{transform:rotate(360deg)}}
+@keyframes payPulse{50%{transform:scale(1.15)}}
+@keyframes payPop{from{transform:scale(0)}}
+@keyframes payTick{from{stroke-dashoffset:40}}
+@keyframes payWave{from{transform:scale(.8);opacity:.55}to{transform:scale(1.9);opacity:0}}
+@keyframes payUp{from{opacity:0;transform:translateY(10px)}}
+@keyframes payShine{to{transform:translateX(100%)}}
+html[data-ui=classy] .pay-ring>svg,html[data-ui=classy] .pay-steps li.on i,html[data-ui=classy] .pay-core .ic{animation-iteration-count:infinite!important}

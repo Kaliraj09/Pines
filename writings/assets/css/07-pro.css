@@ -1,0 +1,308 @@
+/* ============================================================
+   Pines · pro.css
+   Pro polish layer
+   ============================================================ */
+
+/* =====================================================================
+   Pines — professional refinement layer (v7)
+   Loaded last. Calms the palette, flattens surfaces, removes ornamental
+   motion, tightens radii and type. Markup and app logic are untouched.
+   ===================================================================== */
+
+/* ---------- 1. Tokens ---------- */
+:root{
+  --bg:#f6f8f7;--card:#fff;--paper:#fff;
+  --fg:#17231e;--mut:#5f6e68;--bd:#e0e6e3;
+  --tint:#eef4f1;--ac:#1c6e4f;--dk:#134a36;--on:#134a36;
+  --mint:#d9eae1;--mint2:#b4d3c3;--nvc:#42544c;
+  --topbg:#ffffffee;
+  --sh:0 1px 2px #10201a0d,0 2px 8px -4px #10201a1a;
+  --glow:0 0 0 3px #1c6e4f33;
+  --ban:var(--tint);--pill:var(--card);
+  --disp:Inter,system-ui,"Noto Sans Tamil",sans-serif;
+  --r-sm:8px;--r-md:10px;--r-lg:14px;
+  --spring:var(--e);
+}
+html[data-theme=dark]{
+  --bg:#0e1311;--card:#151c19;--fg:#e6eeea;--mut:#8a9b94;--bd:#26312d;
+  --tint:#1a2420;--ac:#4fc08f;--dk:#cfe6db;--on:#cfe6db;
+  --mint:#1f2c26;--mint2:#2e4238;--nvc:#a5b8af;
+  --topbg:#0e1311ee;--sh:0 1px 2px #0007,0 2px 10px -4px #0009;
+  --glow:0 0 0 3px #4fc08f33;--ban:var(--tint);--pill:var(--card);
+}
+
+/* ---------- 3. Base surfaces ---------- */
+body{background:var(--bg);background-attachment:scroll;letter-spacing:0;font-feature-settings:"cv11","ss01"}
+::-webkit-scrollbar-thumb{background:var(--mint2);border:0}
+#sp{height:2px;background:var(--ac)}
+:focus-visible{outline:2px solid var(--ac);outline-offset:2px}
+
+/* ---------- 4. Typography (one family, clear weights) ---------- */
+.lg b{font-family:var(--disp);font-size:18px;font-weight:700;letter-spacing:-.01em}
+.top h1{font-family:var(--disp);font-size:17px;font-weight:650;letter-spacing:-.01em}
+.lib-head h3,.sec>h3,.md h3,.lkc h2,.dayt,.edr-heading h1,.rw-header h1,.rw-overview-main h2,.rw-section-heading h2{font-family:var(--disp);font-weight:650;letter-spacing:-.015em}
+.lib-head h3{font-size:20px}
+.stc b{font-family:var(--disp);font-size:26px;font-weight:650;letter-spacing:-.02em;color:var(--fg)}
+.stc span{font-size:12.5px}
+.pr .cv,.avl,.scr-cover .monogram{font-family:var(--disp)}
+
+/* ---------- 5. Sidebar & navigation ---------- */
+.sb{background:var(--card);border-right:1px solid var(--bd);box-shadow:none;padding:18px 12px}
+html[data-theme=dark] .sb{background:var(--card);border-color:var(--bd)}
+.sb hr{border-top-color:var(--bd)}
+.lg{padding:2px 8px 18px}
+.lgi{width:32px;height:32px;border-radius:var(--r-sm);background:var(--ac);color:#fff;box-shadow:none}
+.lgi::after{display:none}
+html[data-theme=dark] .lgi{color:#08140f}
+.sb .nv,.nv{border-radius:var(--r-sm);padding:9px 12px;font-weight:500;color:var(--nvc)}
+.sb .nv:hover,.nv:hover{background:var(--tint);transform:none;color:var(--fg)}
+.sb .nv.on,.nv.on{background:var(--tint);color:var(--dk);font-weight:600;box-shadow:none!important}
+.sb .nv.on::before{left:-12px;width:3px;top:20%;bottom:20%}
+.sb .nv svg,.sb .nv:hover svg{transform:none;transition:none}
+html[data-theme=dark] .nv:hover{background:var(--tint)}
+.sbf{border-radius:var(--r-md)}
+.sbf:hover{transform:none;box-shadow:none}
+
+/* ---------- 6. Top bar ---------- */
+.top{backdrop-filter:blur(8px);box-shadow:none;padding:12px 28px}
+
+/* ---------- 7. Buttons & inputs ---------- */
+button{border-radius:var(--r-sm);padding:8px 14px;transition:background .15s,border-color .15s,color .15s,box-shadow .15s;font-weight:500}
+button:hover{transform:none;box-shadow:none;border-color:var(--mint2);background:var(--tint)}
+button:active{transform:none;background:var(--mint)}
+.pri,.hero .pri,html[data-theme=dark] .hero .pri{background:var(--ac);color:#fff;border:1px solid var(--ac);box-shadow:none;font-weight:600;border-radius:var(--r-sm)}
+.pri:hover,.hero .pri:hover{background:var(--dk);border-color:var(--dk);transform:none;box-shadow:none}
+html[data-theme=dark] .pri,html[data-theme=dark] .hero .pri{color:#08140f}
+html[data-theme=dark] .pri:hover,html[data-theme=dark] .hero .pri:hover{background:#6fd3a6;border-color:#6fd3a6}
+.pri::after{display:none}
+.dng:hover{background:#c4473f14;border-color:#c4473f66}
+input,select,.tx{border-radius:var(--r-sm);padding:8px 11px}
+input:focus,select:focus,.tx:focus{border-color:var(--ac);box-shadow:var(--glow)}
+.chip{border-radius:6px;padding:2px 9px;font-weight:600;background:var(--tint);border-color:var(--bd);color:var(--dk)}
+.chip:hover{transform:none}
+.sgb button:hover{transform:none;background:var(--tint)}
+
+/* ---------- 8. Banners & hero: flat, quiet ---------- */
+.hero,
+.rw-header,.schedule-heading,.pdf-studio-head,.legal-intro,.legal-subhead,.legal-editor-head,.registration-intro,
+.details-heading{
+  background:var(--ban);border:1px solid var(--bd);border-radius:var(--r-lg);box-shadow:none;padding:24px 28px
+}
+html[data-theme=dark] .hero{background:var(--ban);color:var(--fg);border-color:var(--bd)}
+.hero::before,.hero::after,
+:is(.rw-header,.schedule-heading,.pdf-studio-head,.legal-intro,.legal-subhead,.legal-editor-head,.registration-intro,.details-heading)::before,
+:is(.rw-header,.schedule-heading,.pdf-studio-head,.legal-intro,.legal-subhead,.legal-editor-head,.registration-intro,.details-heading)::after{display:none}
+.hero h2,
+:is(.rw-header,.schedule-heading,.pdf-studio-head,.legal-intro,.legal-subhead,.legal-editor-head,.registration-intro) :is(h1,h2){
+  font:650 clamp(21px,2.3vw,26px)/1.2 var(--disp);letter-spacing:-.02em;margin:0 0 6px;color:var(--fg)
+}
+.hero p,:is(.rw-header,.schedule-heading,.pdf-studio-head,.legal-intro,.legal-subhead,.legal-editor-head,.registration-intro) p{font-size:14px;color:var(--mut);opacity:1;line-height:1.6}
+.rw-section-tag,.rw-eyebrow{letter-spacing:0;text-transform:none;font-size:12px;font-weight:600;padding:3px 10px;border-radius:6px;background:var(--card);border:1px solid var(--bd);color:var(--dk)}
+.rw-section-tag::before{animation:none;background:var(--ac)}
+
+/* ---------- 9. Cards & lists ---------- */
+.stc,.card,.pr,.scr-card,.fc,.rcd,.cpc,.wbar,.nvp,.wrap,
+:is(.schedule-day,.pdf-option-card,.legal-choice,.legal-template-card,.rw-report,.rw-stat,.rw-analysis-card,.rw-group,.legal-fields,.schedule-summary>div){
+  border-radius:var(--r-md);box-shadow:var(--sh)
+}
+.stc{padding:16px}
+.stc::before,.stc::after,.scr-card::after,.fc::after,.rcd::after,.pr::after,.cpc::after,
+:is(.schedule-day,.pdf-option-card,.legal-choice,.legal-template-card,.rw-report,.rw-stat,.rw-analysis-card,.rw-group,.legal-fields,.schedule-summary>div)::after{display:none}
+.stc:hover,.scr-card:hover,.pr:hover,.fc:hover,.rcd:hover,.cpc:hover,.rw-stat:hover,.rw-analysis-card:hover,
+:is(.schedule-day,.pdf-option-card,.legal-choice,.legal-template-card,.rw-report,.rw-group):hover{
+  transform:none;box-shadow:var(--sh);border-color:var(--mint2)
+}
+.pr{padding:12px 16px;margin-bottom:8px}
+.pr:hover{background:var(--tint)}
+.pr .cv,.avl,.pr:hover .cv,.cpc:hover .avl,.scr-card:hover .monogram{transform:none}
+.cv{border-radius:var(--r-sm);background:var(--tint);color:var(--dk);border:1px solid var(--bd)}
+.scr-cover::before{display:none}
+.scr-card:hover .scr-cover-image{transform:none}
+.scr-cover{border-radius:var(--r-md) var(--r-md) 0 0}
+.fc i,.rcd i,.av{box-shadow:none}
+.av{border:1px solid var(--bd)}
+.rw-report:hover .rw-report-arrow,.rw-report:hover .rw-report-icon,.ni:hover{transform:none}
+.empty{border-radius:var(--r-lg)}
+
+/* ---------- 10. Writing workspace ---------- */
+.wbar{box-shadow:var(--sh)}
+.wbar .tools button:hover,.wbar .tools button:hover svg{transform:none}
+.page{border-radius:4px;box-shadow:0 1px 3px #10201a14,0 8px 24px -12px #10201a33}
+.r{border-radius:6px}
+.r:not([data-rv]):focus-within{background:var(--tint);box-shadow:inset 2px 0 0 var(--ac)}
+.sc:focus-within{box-shadow:none}
+tr:hover td{background:var(--tint)}
+.bar2 i,.hb i,.spk rect{animation:none}
+
+/* ---------- 11. Overlays, modals, toasts ---------- */
+.ov{background:#0e1a1478;backdrop-filter:none}
+html[data-theme=dark] .ov{background:#000a}
+.md{border-radius:var(--r-lg);box-shadow:0 20px 48px -16px #0e1a1466}
+@media(min-width:601px){.md{border-radius:var(--r-lg)}}
+.toast{background:#17231e;color:#fff;border-radius:var(--r-sm);padding:10px 16px;font-weight:500;box-shadow:0 8px 24px -8px #0008}
+html[data-theme=dark] .toast{background:#e6eeea;color:#0e1311}
+.lkc{border-radius:var(--r-lg);box-shadow:0 20px 48px -20px #0e1a1466}
+.lk::before{display:none}
+.tsp{animation:none;box-shadow:0 0 0 9999px #0e1a1480,0 0 0 2px var(--ac);border-radius:var(--r-md)}
+.sw input:checked+i{box-shadow:none}
+
+
+/* ---------- 13. Script cards: flat cover ---------- */
+.scr-cover{background:var(--tint);color:var(--dk);border-bottom:1px solid var(--bd);min-height:96px}
+.scr-cover .monogram{background:var(--card);border:1px solid var(--bd);box-shadow:none;border-radius:6px;color:var(--dk)}
+.scr-cover .cover-side .chip{background:var(--card);border-color:var(--bd);color:var(--dk);text-transform:none;letter-spacing:0}
+
+
+/* ---------- 14. Writing toolbar & scene rows ---------- */
+.sc{background:var(--tint);border-left:3px solid var(--ac);border-radius:6px}
+.sgb{border-radius:var(--r-md);margin-top:8px}
+.sgb button,.pi button{border-radius:6px;font-size:13px;font-weight:500;padding:3px 11px;background:var(--card);border-color:var(--bd);color:var(--fg)}
+.sgb button:hover,.pi button:hover{background:var(--tint);border-color:var(--mint2)}
+.sgb button.t,html[data-theme=dark] .sgb button.t{background:var(--tint);border-color:var(--bd);color:var(--dk)}
+.sgb small,.pi small{text-transform:none;letter-spacing:0;font-size:12px;font-weight:600;color:var(--mut)}
+.nvp h4,.scene-nav-head h4{text-transform:none;letter-spacing:0;font-size:12.5px;font-weight:650;color:var(--fg)}
+
+
+/* paper stays light in both themes, so rows on it must too */
+.sc,html[data-theme=dark] .sc{background:#eef4f1}
+.r:not([data-rv]):focus-within{background:#1c6e4f12;box-shadow:inset 2px 0 0 var(--ac)}
+.sgb::before{text-transform:none;letter-spacing:0;font-size:12px;font-weight:600;color:var(--mut)}
+
+
+/* ---------- 15. Remaining decorative leftovers ---------- */
+html[data-theme=dark] body{background:var(--bg)}
+.schedule-day::before{width:3px;background:var(--ac);animation:none}
+.schedule-unscheduled::before{background:var(--mint2)}
+.schedule-day-number{border-radius:var(--r-sm);background:var(--tint);border:1px solid var(--bd);color:var(--dk);box-shadow:none;transform:none!important;font-weight:650}
+.schedule-summary>div::before,.rw-stat::before,.pdf-option-card::before,.legal-choice::before,.legal-template-card::before{display:none}
+.schedule-day,.schedule-summary>div{border-radius:var(--r-md)}
+
+/* ---------- 12. Small screens ---------- */
+@media(max-width:800px){
+  .hero,.rw-header,.schedule-heading,.pdf-studio-head,.legal-intro,.legal-subhead,.legal-editor-head,.registration-intro{padding:18px 16px;border-radius:var(--r-md)}
+  .sb .nv.on::before{height:2px;bottom:-1px}
+  .top{padding:10px 16px}
+}
+
+/* =====================================================================
+   16. Details page
+   ===================================================================== */
+.details-workspace{display:grid;gap:16px;max-width:1040px;margin-inline:auto;width:100%}
+.details-workspace svg.ic:empty,.pdf-studio svg.ic:empty{display:none}
+
+/* snapshot: one strip instead of four cards */
+.details-snapshot{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;background:var(--card);border:1px solid var(--bd);border-radius:var(--r-md);box-shadow:var(--sh)}
+.details-snapshot>div{background:none;border:0;border-left:1px solid var(--bd);border-radius:0;box-shadow:none;padding:14px 20px}
+.details-snapshot>div:first-child{border-left:0}
+.details-snapshot>div::before{display:none}
+.details-snapshot>div:hover{transform:none}
+.details-snapshot b{font:650 22px/1.2 var(--disp);letter-spacing:-.02em;color:var(--fg)}
+.details-snapshot span{font-size:12.5px;color:var(--mut)}
+
+/* two columns: cover | information */
+.details-grid{display:grid;grid-template-columns:272px minmax(0,1fr);gap:16px;align-items:start}
+.details-grid>.card{padding:20px;border-radius:var(--r-md);overflow:visible}
+.details-grid>.card::before,.details-grid>.card::after{display:none}
+.details-grid>.card:hover{box-shadow:var(--sh)}
+.details-section-title{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin:0 0 14px;padding-bottom:12px;border-bottom:1px solid var(--bd)}
+.details-section-title b{font:650 15px var(--disp);letter-spacing:-.01em}
+.details-section-title>span{display:block;background:none;border:0;padding:0;border-radius:0;font-size:12px;font-weight:500;letter-spacing:0;color:var(--mut);text-transform:lowercase}
+.details-section-title>span::first-letter{text-transform:uppercase}
+.details-language-title{margin:22px 0 4px;padding:18px 0 0;border-bottom:0;border-top:1px solid var(--bd)}
+
+/* cover */
+.details-cover-preview{max-width:200px;margin:0 auto;border:1px dashed var(--mint2);border-radius:var(--r-md);background:var(--tint);overflow:hidden}
+.details-cover-card:hover .details-cover-preview,.details-cover-card:hover .details-cover-preview img{transform:none;box-shadow:none;border-style:dashed}
+.details-cover-placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;width:100%;height:100%;padding:16px;text-align:center}
+.details-cover-placeholder svg{animation:none}
+.details-cover-placeholder b{font:650 15px/1.3 var(--disp)}
+.details-cover-placeholder small{font-size:12px;color:var(--mut)}
+.details-upload{display:flex;flex-direction:column;align-items:stretch;gap:8px;margin-top:14px;padding:12px;min-height:0;border:1px dashed var(--mint2);border-radius:var(--r-sm);background:var(--card);color:var(--fg);font-size:13px;font-weight:600;cursor:pointer}
+.details-upload:hover{background:var(--tint);transform:none;border-style:dashed;color:var(--fg)}
+.details-upload input[type=file]{width:100%;min-height:0;padding:0;border:0;background:none;box-shadow:none;font-size:12px;color:var(--mut)}
+.details-upload input[type=file]::file-selector-button{font:inherit;font-weight:600;padding:5px 11px;margin-right:10px;border:1px solid var(--bd);border-radius:6px;background:var(--tint);color:var(--dk);cursor:pointer}
+.details-remove-cover{width:100%;margin-top:8px;min-height:34px;font-size:12.5px;border-radius:var(--r-sm)}
+.details-cover-card>p{text-align:left;font-size:12px;margin:10px 0 0}
+
+/* information form */
+.details-meta-card input,.details-meta-card select{min-height:40px}
+.details-meta-card label{font-size:12.5px;font-weight:600;color:var(--fg)}
+.details-meta-card>.fg{grid-template-columns:repeat(2,minmax(0,1fr));gap:2px 16px;margin-top:2px}
+.details-meta-card>p{margin:0 0 2px}
+.details-meta-card>label:last-child{max-width:calc(50% - 8px)}
+
+@media(max-width:860px){
+  .details-grid{grid-template-columns:minmax(0,1fr)}
+  .details-snapshot{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .details-snapshot>div:nth-child(3){border-left:0}
+  .details-snapshot>div:nth-child(n+3){border-top:1px solid var(--bd)}
+  .details-meta-card>label:last-child{max-width:none}
+}
+@media(max-width:520px){.details-meta-card>.fg{grid-template-columns:minmax(0,1fr)}}
+
+/* =====================================================================
+   17. Export page
+   ===================================================================== */
+.pdf-studio{gap:16px}
+
+/* option cards */
+.pdf-settings-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;align-items:stretch}
+.pdf-option-card{padding:18px;overflow:visible}
+.pdf-option-card::before{display:none}
+.pdf-option-card:hover{transform:none}
+.pdf-option-card h3{font:650 15px var(--disp);letter-spacing:-.01em;margin:0 0 8px;padding-bottom:12px;border-bottom:1px solid var(--bd)}
+
+/* checkboxes become quiet list rows */
+.pdf-check{margin:0 -8px;padding:9px 8px;border:0;border-radius:var(--r-sm);background:none;box-shadow:none;transform:none;font-size:13.5px;font-weight:500}
+.pdf-check:hover{background:var(--tint);transform:none;border-color:transparent}
+.pdf-check:has(input:checked){background:none;box-shadow:none;font-weight:500}
+.pdf-check:has(input:checked):hover{background:var(--tint)}
+.pdf-check input{width:16px;height:16px;margin:0;accent-color:var(--ac);padding:0;min-height:0}
+.pdf-option-card label:not(.pdf-check){margin-top:12px}
+.pdf-two-fields{gap:12px}
+.pdf-section-grid{grid-template-columns:minmax(0,1fr)}
+
+/* security note spans the row as a notice */
+.pdf-settings-grid>.pdf-option-card:last-child{grid-column:1/-1;display:grid;grid-template-columns:220px minmax(0,1fr);gap:8px 20px;align-items:center}
+.pdf-settings-grid>.pdf-option-card:last-child h3{margin:0;padding:0;border:0}
+.pdf-security-note{padding:12px 14px;border-radius:var(--r-sm);background:var(--tint);border:1px solid var(--bd);font-size:13px}
+.pdf-security-note b{font-weight:650}
+
+/* other formats: a tidy grid card */
+.pdf-other-formats{order:2;display:grid;grid-template-columns:repeat(auto-fill,minmax(152px,1fr));gap:8px;align-items:stretch;padding:16px 18px 18px;background:var(--card);border:1px solid var(--bd);border-radius:var(--r-md);box-shadow:var(--sh)}
+.pdf-other-formats>span{grid-column:1/-1;font:650 15px var(--disp);color:var(--fg);padding-bottom:4px}
+.pdf-other-formats button{justify-content:flex-start;font-size:13px;padding:8px 12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+/* primary action bar: quiet, solid, sticky */
+.pdf-export-bottom{order:3;padding:16px 20px;border-radius:var(--r-md);background:var(--card);color:var(--fg);border:1px solid var(--ac);box-shadow:var(--sh);animation:none}
+.pdf-export-bottom b{font:650 15px var(--disp)}
+.pdf-export-bottom small{display:block;margin-top:2px;color:var(--mut);font-size:12.5px}
+.pdf-export-bottom .pri{padding:10px 22px}
+
+@media(max-width:1000px){.pdf-settings-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:640px){
+  .pdf-settings-grid{grid-template-columns:minmax(0,1fr)}
+  .pdf-settings-grid>.pdf-option-card:last-child{grid-template-columns:minmax(0,1fr)}
+  .pdf-export-bottom{flex-direction:column;align-items:stretch}
+  .pdf-export-bottom .pri{width:100%}
+}
+
+/* compact page banners for Details */
+.details-heading{padding:20px 24px}
+.details-heading h2{font:650 clamp(21px,2.3vw,26px)/1.2 var(--disp);letter-spacing:-.02em;margin:8px 0 4px;color:var(--fg)}
+.details-heading p{color:var(--mut);opacity:1;margin:0;font-size:14px}
+
+/* =====================================================================
+   18. Uniform thumbnails: every cover is the same 16:9 frame
+   ===================================================================== */
+.scr-cover{aspect-ratio:16/9;min-height:0;height:auto;padding:14px 16px}
+.scr-cover{position:relative;overflow:hidden}
+.scr-cover-image{position:absolute;inset:0;z-index:0;width:100%;height:100%;max-width:none;object-fit:cover;object-position:center;display:block}
+.scr-cover .monogram,.scr-cover .cover-side{position:relative;z-index:1}
+.scr-cover .cover-side{margin-left:auto}
+/* keep the chips readable over photos */
+.scr-cover .cover-side .chip{box-shadow:0 1px 3px #0e1a1440}
+.scr-cover .scr-demo{white-space:nowrap}
+/* Details preview uses the identical frame */
+.details-cover-preview{aspect-ratio:16/9;max-width:none;width:100%}
+.details-cover-preview img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}

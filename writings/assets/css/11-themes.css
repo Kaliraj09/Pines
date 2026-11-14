@@ -1,0 +1,158 @@
+/* ============================================================
+   Pines · themes.css
+   Cool / Classy themes and animation pack
+   ============================================================ */
+
+/* ===== Cool theme: extra animation pack ===== */
+@keyframes idleShine{0%,62%{transform:translateX(-130%)}100%{transform:translateX(130%)}}
+@keyframes lineGrow{to{width:56px}}
+@keyframes twinkle{0%,100%{opacity:0;transform:scale(.3) rotate(0)}50%{opacity:1;transform:scale(1) rotate(90deg)}}
+@keyframes trailFade{from{opacity:.9;transform:translate(-50%,-50%) scale(1)}to{opacity:0;transform:translate(-50%,calc(-50% - 22px)) scale(.2)}}
+@keyframes titleIn{from{opacity:0;transform:translateX(-14px);letter-spacing:.08em}}
+@keyframes badgePop{0%{transform:scale(.7);opacity:0}60%{transform:scale(1.08)}100%{transform:scale(1);opacity:1}}
+html:not([data-ui=classy]) .pri::after{animation:idleShine 5.5s ease-in-out infinite}
+html:not([data-ui=classy]) .lib-head h3::after{content:"";display:block;height:3px;width:0;margin-top:6px;border-radius:3px;background:linear-gradient(90deg,#a8f3cf,#35c28f);animation:lineGrow .8s .35s cubic-bezier(.2,.8,.2,1) forwards}
+html:not([data-ui=classy]) .top h1{animation:titleIn .6s cubic-bezier(.2,.8,.2,1) backwards}
+html:not([data-ui=classy]) .lgi svg{animation:wiggle 6s ease-in-out infinite}
+html:not([data-ui=classy]) .av{animation:dot 2.4s ease-out infinite}
+html:not([data-ui=classy]) .rw-stat-label span{animation:breathe 3s ease-in-out infinite}
+html:not([data-ui=classy]) .scr-cover .cover-side .chip{animation:float 4s ease-in-out infinite}
+html:not([data-ui=classy]) .scr-cover .cover-side .chip+.chip{animation-delay:-1.6s}
+html:not([data-ui=classy]) .chip{animation:badgePop .5s cubic-bezier(.34,1.56,.64,1) backwards}
+html:not([data-ui=classy]) .scr-demo{position:relative;overflow:hidden}
+html:not([data-ui=classy]) .scr-demo::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,#ffffff88 50%,transparent 70%);animation:idleShine 4s 1s ease-in-out infinite}
+html:not([data-ui=classy]) .sc:focus-within{animation:pulseBar 1.6s ease-in-out infinite}
+@keyframes pulseBar{50%{box-shadow:0 0 0 4px #a8f3cf55}}
+html:not([data-ui=classy]) .stc:hover b,html:not([data-ui=classy]) .rw-stat:hover strong{animation:breathe .8s ease-in-out}
+.sp2{position:absolute;z-index:0;width:12px;height:12px;pointer-events:none;background:radial-gradient(circle,#fff 0 2px,transparent 3px),linear-gradient(#fff,#fff) center/2px 100% no-repeat,linear-gradient(#fff,#fff) center/100% 2px no-repeat;opacity:0;animation:twinkle 3.2s ease-in-out infinite;filter:drop-shadow(0 0 4px #fff)}
+.trail{position:fixed;z-index:150;width:9px;height:9px;border-radius:50%;pointer-events:none;background:radial-gradient(circle,#fff,#a8f3cf 60%,#a8f3cf00 70%);animation:trailFade .7s ease-out forwards}
+/* theme picker */
+.uit-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
+.uit{position:relative;display:flex!important;flex-direction:column;align-items:flex-start!important;justify-content:flex-start!important;gap:6px;height:auto;padding:12px!important;text-align:left;border:2px solid var(--bd);border-radius:12px}
+.uit.on{border-color:var(--ac);box-shadow:0 0 0 3px color-mix(in srgb,var(--ac) 22%,transparent)}
+.uit b{font-size:14px}.uit span.d{font-size:12px;color:var(--mut);font-weight:400;white-space:normal}
+.uit .sw2{display:flex;width:100%;height:46px;border-radius:9px;overflow:hidden;border:1px solid var(--bd)}
+.uit .sw2 i{flex:1}
+.uit .act{position:absolute;top:10px;right:10px;font-size:10px;font-weight:700;letter-spacing:.05em;padding:2px 8px;border-radius:20px;background:var(--ac);color:#fff}
+html[data-theme=dark] .uit .act{color:#08140f}
+@media(max-width:420px){.uit-grid{grid-template-columns:1fr}}
+
+/* ===== Classy theme (#1d6f4f) ===== */
+html[data-ui=classy]{--bg:#f6f8f7;--card:#fff;--paper:#fff;--fg:#17231e;--mut:#5f6e68;--bd:#e0e6e3;--tint:#eef4f1;--ac:#1d6f4f;--dk:#14503a;--on:#14503a;--mint:#d9eae1;--mint2:#b4d3c3;--nvc:#42544c;--topbg:#ffffffee;--sh:0 1px 2px #10201a0d,0 2px 8px -4px #10201a1a;--glow:0 0 0 3px #1d6f4f33;--ban:var(--tint);--pill:#fff;--spring:cubic-bezier(.2,.8,.2,1)}
+html[data-ui=classy][data-theme=dark]{--bg:#0e1311;--card:#151c19;--fg:#e6eeea;--mut:#8a9b94;--bd:#26312d;--tint:#1a2420;--ac:#4fc08f;--dk:#cfe6db;--on:#cfe6db;--mint:#1f2c26;--mint2:#2e4238;--nvc:#a5b8af;--topbg:#0e1311ee;--sh:0 1px 2px #0007,0 2px 10px -4px #0009;--glow:0 0 0 3px #4fc08f33;--ban:var(--tint);--pill:var(--card)}
+html[data-ui=classy] *:not(.reg-spinner),html[data-ui=classy] *::before,html[data-ui=classy] *::after{animation-iteration-count:1!important}
+html[data-ui=classy] body::before,html[data-ui=classy] body::after,html[data-ui=classy]::before{display:none}
+html[data-ui=classy]:root:root:root #sp{background:var(--ac);box-shadow:none;height:2px}
+html[data-ui=classy]:root:root:root ::selection{background:#1d6f4f33;color:inherit}
+html[data-ui=classy]:root:root:root .sb{background:var(--card);background-size:auto;animation:none;border-right:1px solid var(--bd);box-shadow:none}
+html[data-ui=classy]:root:root:root .sb hr{border-top-color:var(--bd)}
+html[data-ui=classy]:root:root:root .lgi{background:var(--ac);color:#fff;box-shadow:none;animation:none}
+html[data-ui=classy]:root:root:root .lgi::after{display:none}
+html[data-ui=classy]:root:root:root .lgi svg{animation:none}
+html[data-ui=classy]:root:root:root .lg b{color:var(--fg)}
+html[data-ui=classy]:root:root:root .sb .nv:hover{background:var(--tint);transform:none;color:var(--fg)}
+html[data-ui=classy]:root:root:root .sb .nv:hover svg{transform:none}
+html[data-ui=classy]:root:root:root .sb .nv.on{background:var(--tint);color:var(--dk);box-shadow:none!important}
+html[data-ui=classy]:root:root:root .sb .nv.on svg{color:var(--ac);animation:none}
+html[data-ui=classy]:root:root:root .sb .nv.on::before{width:3px;animation:none}
+html[data-ui=classy]:root:root:root .sbf:hover{transform:none;box-shadow:none}
+html[data-ui=classy]:root:root:root .av{box-shadow:none;border:1px solid var(--bd);animation:none}
+html[data-ui=classy]:root:root:root .top{background:var(--topbg);animation:none;backdrop-filter:blur(8px)}
+html[data-ui=classy]:root:root:root .top h1{animation:none}
+html[data-ui=classy]:root:root:root .pri,html[data-ui=classy]:root:root:root .hero .pri,html[data-ui=classy]:root:root:root .pri:hover,html[data-ui=classy]:root:root:root .hero .pri:hover{background:var(--ac);background-size:auto;color:#fff;border:1px solid var(--ac);box-shadow:none;animation:none}
+html[data-ui=classy]:root:root:root .pri:hover,html[data-ui=classy]:root:root:root .hero .pri:hover{background:var(--dk);border-color:var(--dk);transform:none}
+html[data-ui=classy]:root:root:root .pri::after{display:none}
+html[data-ui=classy]:root:root:root :is(.hero,.schedule-heading,.pdf-studio-head,.legal-intro,.legal-subhead,.legal-editor-head,.registration-intro,.details-heading,.rw-header,.pdf-export-bottom) .pri{background:var(--ac);border:1px solid var(--ac);color:#fff;animation:none}
+html[data-ui=classy]:root:root:root :is(.hero,.schedule-heading,.pdf-studio-head,.legal-intro,.legal-subhead,.legal-editor-head,.registration-intro,.details-heading,.rw-header,.pdf-export-bottom) .pri:hover{background:var(--dk);border-color:var(--dk)}
+html[data-ui=classy]:root:root:root :is(.top>button,.top .ib,.tabs button,.tb>button,.rwb button,.lib-tools button,.schedule-actions>button,.legal-export-actions>button,.pdf-other-formats button,.scr-actions button,.acts button):hover{transform:none;box-shadow:none;background:var(--tint);border-color:var(--mint2)}
+html[data-ui=classy]:root:root:root button:active{transform:none}
+html[data-ui=classy]:root:root:root .rp{display:none}
+html[data-ui=classy]:root:root:root .chip{background:var(--tint);border-color:var(--bd);color:var(--dk)}
+html[data-ui=classy]:root:root:root .chip:hover{transform:none;background:var(--tint);color:var(--dk)}
+html[data-ui=classy]:root:root:root .tabs button.on{background:var(--mint);color:var(--on);border-color:var(--mint2);animation:none}
+html[data-ui=classy]:root:root:root .wbar .tools button.on{background:var(--card);color:var(--dk);border-color:transparent;animation:none}
+html[data-ui=classy]:root:root:root .wbar .tools button.on svg{color:var(--ac)}
+html[data-ui=classy]:root:root:root .wbar .tools button:hover{transform:none;background:var(--tint)}
+html[data-ui=classy]:root:root:root .wbar .tools button:hover svg{transform:none}
+html[data-ui=classy]:root:root:root .sgb button:hover,html[data-ui=classy]:root:root:root .pi button:hover{transform:none;background:var(--tint);border-color:var(--mint2);color:var(--fg)}
+html[data-ui=classy]:root:root:root .ni:hover{transform:none;background:var(--tint)}
+html[data-ui=classy]:root:root:root .ni b,html[data-ui=classy]:root:root:root .rw-group-head>span,html[data-ui=classy]:root:root:root .edr-kicker,html[data-ui=classy]:root:root:root .edr-section-label,html[data-ui=classy]:root:root:root .edr-entry-no,html[data-ui=classy]:root:root:root .legal-choice em,html[data-ui=classy]:root:root:root .legal-template-open,html[data-ui=classy]:root:root:root .tst,html[data-ui=classy]:root:root:root .schedule-summary b,html[data-ui=classy]:root:root:root .scr-metrics b{color:var(--ac)}
+html[data-ui=classy]:root:root:root .sgb small,html[data-ui=classy]:root:root:root .pi small,html[data-ui=classy]:root:root:root .sgb::before{color:var(--mut)}
+html[data-ui=classy]:root:root:root .hero,html[data-ui=classy]:root:root:root .rw-header,html[data-ui=classy]:root:root:root .schedule-heading,html[data-ui=classy]:root:root:root .pdf-studio-head,html[data-ui=classy]:root:root:root .legal-intro,html[data-ui=classy]:root:root:root .legal-subhead,html[data-ui=classy]:root:root:root .legal-editor-head,html[data-ui=classy]:root:root:root .registration-intro,html[data-ui=classy]:root:root:root .details-heading{background:var(--ban);background-image:none;border:1px solid var(--bd);box-shadow:none;animation:rise .25s ease backwards}
+html[data-ui=classy]:root:root:root .hero::before,html[data-ui=classy]:root:root:root .rw-header::before,html[data-ui=classy]:root:root:root .schedule-heading::before,html[data-ui=classy]:root:root:root .pdf-studio-head::before,html[data-ui=classy]:root:root:root .legal-intro::before,html[data-ui=classy]:root:root:root .legal-subhead::before,html[data-ui=classy]:root:root:root .legal-editor-head::before,html[data-ui=classy]:root:root:root .registration-intro::before,html[data-ui=classy]:root:root:root .details-heading::before,html[data-ui=classy]:root:root:root .hero::after,html[data-ui=classy]:root:root:root .rw-header::after,html[data-ui=classy]:root:root:root .schedule-heading::after,html[data-ui=classy]:root:root:root .pdf-studio-head::after,html[data-ui=classy]:root:root:root .legal-intro::after,html[data-ui=classy]:root:root:root .legal-subhead::after,html[data-ui=classy]:root:root:root .legal-editor-head::after,html[data-ui=classy]:root:root:root .registration-intro::after,html[data-ui=classy]:root:root:root .details-heading::after{display:none}
+html[data-ui=classy]:root:root:root .hero h2{background:none;animation:none;padding:0;margin-left:0;width:auto;color:var(--fg)}
+html[data-ui=classy]:root:root:root .rw-section-tag,html[data-ui=classy]:root:root:root .rw-eyebrow{background:var(--card);border:1px solid var(--bd);color:var(--dk)}
+html[data-ui=classy]:root:root:root .rw-section-tag::before{animation:none}
+html[data-ui=classy]:root:root:root .stc::before,html[data-ui=classy]:root:root:root .rw-stat::before,html[data-ui=classy]:root:root:root .schedule-summary>div::before,html[data-ui=classy]:root:root:root .pdf-option-card::before,html[data-ui=classy]:root:root:root .details-grid>.card::before{display:none}
+html[data-ui=classy]:root:root:root .stc b,html[data-ui=classy]:root:root:root .rw-stat strong,html[data-ui=classy]:root:root:root .details-snapshot b{color:var(--fg)}
+html[data-ui=classy]:root:root:root .stc:hover,html[data-ui=classy]:root:root:root .rw-stat:hover,html[data-ui=classy]:root:root:root .rw-analysis-card:hover,html[data-ui=classy]:root:root:root .rw-group:hover,html[data-ui=classy]:root:root:root .schedule-summary>div:hover,html[data-ui=classy]:root:root:root .legal-choice:hover,html[data-ui=classy]:root:root:root .legal-template-card:hover,html[data-ui=classy]:root:root:root .pdf-option-card:hover,html[data-ui=classy]:root:root:root .fc:hover,html[data-ui=classy]:root:root:root .rcd:hover,html[data-ui=classy]:root:root:root .cpc:hover,html[data-ui=classy]:root:root:root .edr-entry:hover,html[data-ui=classy]:root:root:root .edr-dialogue:hover{transform:none;box-shadow:var(--sh);border-color:var(--mint2)}
+html[data-ui=classy]:root:root:root .stc::after,html[data-ui=classy]:root:root:root .scr-card::after,html[data-ui=classy]:root:root:root .fc::after,html[data-ui=classy]:root:root:root .rcd::after,html[data-ui=classy]:root:root:root .pr::after,html[data-ui=classy]:root:root:root .cpc::after,html[data-ui=classy]:root:root:root .schedule-day::after,html[data-ui=classy]:root:root:root .pdf-option-card::after,html[data-ui=classy]:root:root:root .legal-choice::after,html[data-ui=classy]:root:root:root .legal-template-card::after,html[data-ui=classy]:root:root:root .rw-stat::after,html[data-ui=classy]:root:root:root .rw-analysis-card::after,html[data-ui=classy]:root:root:root .rw-group::after,html[data-ui=classy]:root:root:root .legal-fields::after,html[data-ui=classy]:root:root:root .schedule-summary>div::after,html[data-ui=classy]:root:root:root .rw-report::after,html[data-ui=classy]:root:root:root .details-grid>.card::after{display:none}
+html[data-ui=classy]:root:root:root .details-snapshot>div:hover{background:none}
+html[data-ui=classy]:root:root:root .scr-card:hover{transform:none;box-shadow:var(--sh);border-color:var(--mint2)}
+html[data-ui=classy]:root:root:root .scr-cover{background:var(--tint);color:var(--dk);border-bottom:1px solid var(--bd)}
+html[data-ui=classy]:root:root:root .scr-cover::before{display:none}
+html[data-ui=classy]:root:root:root .scr-cover .monogram{background:var(--card);border:1px solid var(--bd);box-shadow:none;color:var(--dk)}
+html[data-ui=classy]:root:root:root .scr-card:hover .monogram,html[data-ui=classy]:root:root:root .scr-card:hover .scr-cover-image{transform:none}
+html[data-ui=classy]:root:root:root .scr-cover .cover-side .chip{background:var(--card);border-color:var(--bd);color:var(--dk);animation:none}
+html[data-ui=classy]:root:root:root .scr-demo{background:var(--dk);color:#fff}
+html[data-ui=classy]:root:root:root .scr-open:hover{background:var(--tint);border-color:var(--mint2);color:var(--dk)}
+html[data-ui=classy]:root:root:root .pr:hover{transform:none;background:var(--tint)}
+html[data-ui=classy]:root:root:root .cv,html[data-ui=classy]:root:root:root .avl,html[data-ui=classy]:root:root:root .fc i,html[data-ui=classy]:root:root:root .rcd i{background:var(--tint);color:var(--dk);border:1px solid var(--bd);box-shadow:none}
+html[data-ui=classy]:root:root:root .pr:hover .cv,html[data-ui=classy]:root:root:root .cpc:hover .avl,html[data-ui=classy]:root:root:root .fc:hover i,html[data-ui=classy]:root:root:root .rcd:hover i,html[data-ui=classy]:root:root:root .legal-choice:hover .legal-choice-icon,html[data-ui=classy]:root:root:root .legal-template-card:hover .legal-template-icon,html[data-ui=classy]:root:root:root .schedule-day:hover .schedule-day-number{transform:none}
+html[data-ui=classy]:root:root:root .legal-choice-icon,html[data-ui=classy]:root:root:root .legal-template-icon{background:var(--mint);color:var(--on);box-shadow:none}
+html[data-ui=classy]:root:root:root .schedule-day-number{background:var(--tint);border:1px solid var(--bd);color:var(--dk);box-shadow:none}
+html[data-ui=classy]:root:root:root .rw-report-icon{color:var(--ac)}
+html[data-ui=classy]:root:root:root .rw-report:hover{background:var(--tint);transform:none}
+html[data-ui=classy]:root:root:root .rw-report:hover .rw-report-icon,html[data-ui=classy]:root:root:root .rw-report:hover .rw-report-arrow{transform:none}
+html[data-ui=classy]:root:root:root .rw-attention-icon,html[data-ui=classy]:root:root:root .rem svg,html[data-ui=classy]:root:root:root .rw-empty-art,html[data-ui=classy]:root:root:root .empty svg,html[data-ui=classy]:root:root:root .details-cover-placeholder svg{animation:none;color:var(--ac)}
+html[data-ui=classy]:root:root:root .empty{border-color:var(--mint2);background:var(--card)}
+html[data-ui=classy]:root:root:root .rem{background:linear-gradient(120deg,#fff4d9,#fff9e8);border:1px solid #f3dd9d;color:#6a4a00}
+html[data-ui=classy]:root:root:root .rw-budget-panel{background:var(--ac);color:#fff}
+html[data-ui=classy]:root:root:root .rw-budget-panel:hover{transform:none}
+html[data-ui=classy]:root:root:root .rw-budget-panel .rw-section-tag{color:#ffffffc7;background:transparent;border-color:#ffffff40}
+html[data-ui=classy]:root:root:root .rw-budget-panel p{color:#ffffffd4}
+html[data-ui=classy]:root:root:root .rw-budget-panel button{border-color:#ffffff8c;color:#fff}
+html[data-ui=classy]:root:root:root .rw-budget-panel button:hover{background:#ffffff1f}
+html[data-ui=classy]:root:root:root .pdf-export-bottom{background:var(--card);background-size:auto;border:1px solid var(--ac);color:var(--fg);animation:none}
+html[data-ui=classy]:root:root:root .pdf-export-bottom small{color:var(--mut)}
+html[data-ui=classy]:root:root:root .details-upload:hover{background:var(--tint);color:var(--fg);border-style:dashed;transform:none}
+html[data-ui=classy]:root:root:root .schedule-day::before{background:var(--ac);width:3px;animation:none}
+html[data-ui=classy]:root:root:root .schedule-unscheduled::before{background:var(--mint2)}
+html[data-ui=classy]:root:root:root .pdf-check:hover{transform:none;background:var(--tint)}
+html[data-ui=classy]:root:root:root .b{caret-color:var(--ac)}
+html[data-ui=classy]:root:root:root .sc{background:#eef4f1;border-left:3px solid var(--ac)}
+html[data-ui=classy]:root:root:root .r:not([data-rv]):focus-within{background:#1d6f4f12;box-shadow:inset 2px 0 0 var(--ac)}
+html[data-ui=classy]:root:root:root .page{box-shadow:0 1px 3px #10201a14,0 8px 24px -12px #10201a33;animation:none}
+html[data-ui=classy]:root:root:root .sgb{background:var(--card);border:1px solid var(--bd)}
+html[data-ui=classy]:root:root:root .hb i,html[data-ui=classy]:root:root:root .bar2 i{background:linear-gradient(90deg,var(--mint2),var(--ac));animation:none}
+html[data-ui=classy]:root:root:root .spk rect{fill:var(--ac);animation:none}
+html[data-ui=classy]:root:root:root .dsv,html[data-ui=classy]:root:root:root .dn li,html[data-ui=classy]:root:root:root tbody tr{animation:none}
+html[data-ui=classy]:root:root:root .sw input:checked+i{background:var(--ac);box-shadow:none}
+html[data-ui=classy]:root:root:root .ov{background:#0e1a1478;backdrop-filter:none;animation:fade .15s}
+html[data-ui=classy]:root:root:root .md{border:0;box-shadow:0 20px 48px -16px #0e1a1466;animation:fade .18s}
+html[data-ui=classy]:root:root:root .toast{background:#17231e;color:#fff;border:0;border-radius:8px;padding:10px 16px;animation:toastIn .3s,toastOut .3s 1.9s forwards}
+html[data-ui=classy]:root:root:root .tsp{animation:none;box-shadow:0 0 0 9999px #0e1a1480,0 0 0 2px var(--ac)}
+html[data-ui=classy]:root:root:root .tcd{border:0;animation:fade .2s}
+html[data-ui=classy]:root:root:root .lk{background:var(--mint);animation:none}
+html[data-ui=classy]:root:root:root .lk::before{display:none}
+html[data-ui=classy]:root:root:root .lk2{background:var(--bg)}
+html[data-ui=classy]:root:root:root .lkc{border:1px solid var(--bd);box-shadow:0 20px 48px -20px #0e1a1466}
+html[data-ui=classy]:root:root:root .cf,html[data-ui=classy]:root:root:root .sp2,html[data-ui=classy]:root:root:root .trail{display:none}
+html[data-ui=classy]:root:root:root .lib-head h3::after{display:none}
+html[data-ui=classy]:root:root:root .rw-stat-label span{animation:none}
+html[data-ui=classy][data-theme=dark]:root:root:root .pri,html[data-ui=classy][data-theme=dark]:root:root:root .hero .pri,html[data-ui=classy][data-theme=dark]:root:root:root .pri:hover,html[data-ui=classy][data-theme=dark]:root:root:root .hero .pri:hover{color:#08140f}
+html[data-ui=classy][data-theme=dark]:root:root:root :is(.hero,.schedule-heading,.pdf-studio-head,.legal-intro,.legal-subhead,.legal-editor-head,.registration-intro,.details-heading,.rw-header,.pdf-export-bottom) .pri{color:#08140f}
+html[data-ui=classy][data-theme=dark]:root:root:root .lgi{color:#08140f}
+html[data-ui=classy][data-theme=dark]:root:root:root .scr-demo{background:var(--ac);color:#08140f}
+html[data-ui=classy][data-theme=dark]:root:root:root .rem{background:#2e2610;border-color:#5b4a1a;color:#f3d98a}
+html[data-ui=classy][data-theme=dark]:root:root:root .rw-budget-panel{color:#08140f}
+html[data-ui=classy][data-theme=dark]:root:root:root .rw-budget-panel p{color:#08140fcc}
+html[data-ui=classy][data-theme=dark]:root:root:root .rw-budget-panel .rw-section-tag{color:#08140f}
+html[data-ui=classy][data-theme=dark]:root:root:root .rw-budget-panel button{color:#08140f;border-color:#08140f66}
+html[data-ui=classy][data-theme=dark]:root:root:root .toast{background:#e6eeea;color:#0e1311}
+html[data-ui=classy][data-theme=dark]:root:root:root .ov{background:#000b}
+html[data-ui=classy][data-theme=dark]:root:root:root .sb .nv.on{background:var(--tint)}
+html[data-ui=classy][data-theme=dark]:root:root:root .hero h2{color:var(--fg)}
+@media(max-width:800px){html[data-ui=classy]:root:root:root .sb{background:var(--card);border-top:1px solid var(--bd);box-shadow:none}html[data-ui=classy]:root:root:root .sb .nv.on{background:var(--tint)}}
+
+html:not([data-ui=classy]) .stats .chip,html:not([data-ui=classy]) #stt .chip,html:not([data-ui=classy]) .top-mini-stats .chip{animation:none}

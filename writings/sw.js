@@ -92,6 +92,11 @@ const SHELL = [
  "./js/views/home.js",
  "./js/views/legal.js",
  "./js/views/library-shelf.js",
+ "./js/data/pines-originals.js",
+ "./js/views/pines-originals.js",
+ "./assets/covers/avalin.jpg",
+
+   
  "./js/views/library.js",
  "./js/views/pitch-deck.js",
  "./js/views/project-dashboard.js",

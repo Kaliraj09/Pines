@@ -4,7 +4,7 @@
    ============================================================ */
 /* ---- Script reference library (read-only) ---- */
 P.lib='<path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 21V5"/><path d="M9 7h6"/>';
-let libTab='scripts';
+let libTab='orginals';
 const LIBSTY={scene:'font-weight:700;text-transform:uppercase;margin-top:12px',action:'margin-top:8px',char:'margin:12px 0 0 34%;text-transform:uppercase',paren:'margin-left:28%',dial:'margin:0 12% 0 20%',trans:'text-align:right;text-transform:uppercase;margin-top:12px'};
 const libView=bl=>`<div class="card" style="font-family:'Courier New',monospace;font-size:13px;line-height:1.5;padding:16px 18px;overflow-x:auto">${bl.map(([t,x])=>`<div style="${LIBSTY[t]}">${esc(x)}</div>`).join('')}</div>`;
 const LIBG=[

@@ -57,8 +57,10 @@ function libSL(){return `${libOpen<0?`<div class="card sec"><h3>Script library</
 @media(max-width:390px){.lsh-books{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 6px}.bk{--w:116px;--h:165px;width:116px;height:165px}.bk-3d{width:var(--w);height:var(--h)}.bk-cover,.bk-back{width:var(--w);height:var(--h)}.bk-spine{height:var(--h)}.bk-pages{height:calc(var(--h) - 6px)}.bk-top,.bk-bot{width:calc(var(--w) - 6px)}}
 @media(prefers-reduced-motion:reduce){.bk-3d{transition:none}}
 </style>`}
-function libBody(){const tb=[['scripts','Script library'],['samples','Sample scripts'],['guide','Formatting guide']];
+
+
+function libBody(){const tb=[['originals','Pines Original'],['scripts','Script library'],['samples','Sample scripts'],['guide','Formatting guide']];
  const g=`<div class="card sec"><h3>The six building blocks</h3><span class="mut">Read-only reference. Every example is original and sits in the same layout Pines uses.</span></div>${LIBG.map(([h,r,ex])=>`<div class="card sec"><h3>${h}</h3><p class="mut">${r}</p>${libView(ex)}</div>`).join('')}<div class="card sec"><h3>Page and layout basics</h3>${LIBP.map(([a,b])=>rw(a,b,'')).join('')}</div>`;
  const sm=LIBS.map((x,i)=>`<div class="card sec"><h3>${esc(x.t)}</h3><span class="mut">${x.tag}</span>${libView(x.b)}${x.g?`<p class="mut" style="margin-top:10px"><b>English meaning, line by line:</b><br>${x.g.map((l,j)=>(j+1)+'. '+esc(l)).join('<br>')}</p>`:''}<div class="rwb" style="margin-top:12px;flex-wrap:wrap"><button class="pri" data-a="libuse" data-i="${i}">${I('plus',15)}Open as my own copy</button><button data-a="libcopy" data-i="${i}">Copy text</button></div></div>`).join('');
- return `<div class="tabs">${tb.map(([k,n])=>`<button class="${libTab==k?'on':''}" data-a="libtab" data-i="${k}">${n}</button>`).join('')}</div>${libTab=='guide'?g:libTab=='scripts'?libSL():sm}`}
+ return `<div class="tabs">${tb.map(([k,n])=>`<button class="${libTab=='originals'?poBody():libTab=='guide'?g:libTab=='scripts'?libSL():sm}
 function lib(){id=null;view='lib';shell(nv('home','','dash','Dashboard',0)+nv('new','','plus','New screenplay',0)+nv('lib','','lib','Library',1)+nv('settings','','gear','Settings',0),`<div class="top"><h1>Library</h1><span class="sp"></span><span class="mut">Read-only reference</span></div>`,libBody())}

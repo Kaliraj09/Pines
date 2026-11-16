@@ -1,8 +1,9 @@
 /* Pines service worker: makes the app work offline.
    After you change any app file, bump VERSION (or run: node make-sw-list.js). */
-const VERSION = 'pines-v1794679365027';
+const VERSION = 'pines-v1794821520535';
 const SHELL = [
  "./",
+ "./assets/covers/avalin.jpg",
  "./assets/covers/carol.svg",
  "./assets/covers/crows.svg",
  "./assets/covers/danger.svg",
@@ -68,6 +69,7 @@ const SHELL = [
  "./js/data/library/timemachine.js",
  "./js/data/library/treasure.js",
  "./js/data/library/vetala.js",
+ "./js/data/pines-originals.js",
  "./js/export/pdf-pagination.js",
  "./js/services/backup-reminder.js",
  "./js/services/cookies-site-data.js",
@@ -92,13 +94,10 @@ const SHELL = [
  "./js/views/home.js",
  "./js/views/legal.js",
  "./js/views/library-shelf.js",
- "./js/data/pines-originals.js",
- "./js/views/pines-originals.js",
- "./assets/covers/avalin.jpg",
-
-   
  "./js/views/library.js",
+ "./js/views/pines-originals.js",
  "./js/views/pitch-deck.js",
+ "./js/views/policies.js",
  "./js/views/project-dashboard.js",
  "./js/views/reports-hub.js",
  "./js/views/reports.js",

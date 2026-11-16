@@ -69,7 +69,7 @@ function libBody(){const tb=[['originals','Pines Original'],['scripts','Script l
  const g=`<div class="card sec"><h3>The six building blocks</h3><span class="mut">Read-only reference. Every example is original and sits in the same layout Pines uses.</span></div>${LIBG.map(([h,r,ex])=>`<div class="card sec"><h3>${h}</h3><p class="mut">${r}</p>${libView(ex)}</div>`).join('')}<div class="card sec"><h3>Page and layout basics</h3>${LIBP.map(([a,b])=>rw(a,b,'')).join('')}</div>`;  
 
 
-${libTab=='originals'?poBody():libTab=='guide'?g:libTab=='scripts'?libSL():sm}
+
                    
  const sm=LIBS.map((x,i)=>`<div class="card sec"><h3>${esc(x.t)}</h3><span class="mut">${x.tag}</span>${libView(x.b)}${x.g?`<p class="mut" style="margin-top:10px"><b>English meaning, line by line:</b><br>${x.g.map((l,j)=>(j+1)+'. '+esc(l)).join('<br>')}</p>`:''}<div class="rwb" style="margin-top:12px;flex-wrap:wrap"><button class="pri" data-a="libuse" data-i="${i}">${I('plus',15)}Open as my own copy</button><button data-a="libcopy" data-i="${i}">Copy text</button></div></div>`).join('');
  return `<div class="tabs">${tb.map(([k,n])=>`<button class="${libTab=='originals'&&typeof poBody==='function'?poBody():libTab=='guide'?g:libTab=='samples'?sm:libSL()}

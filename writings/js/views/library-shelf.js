@@ -5,6 +5,8 @@
 let libOpen=-1;
 const LIBSPAL=['#1f4e79','#1f3d2e','#5b2a3c','#3a2f5b','#4a3b1f','#2f4858'];
 const libPer=()=>innerWidth<600?5:10;
+
+
 function libShelf(){
  const per=libPer(),rows=Math.max(2,Math.ceil(LIBSCR.length/per));let h='';
  for(let r=0;r<rows;r++){
@@ -12,9 +14,13 @@ function libShelf(){
   h+=`<div class="lsh-row"><div class="lsh-books">${sl.map((b,k)=>{const i=r*per+k,t=Math.max(30,Math.min(62,Math.round(b.pages*.42))),sc=b.blocks.filter(x=>x[0]==='scene').length;
    return `<div class="bk" role="button" tabindex="0" data-a="libbook" data-i="${i}" style="--t:${t}px;--c:${LIBSPAL[i%LIBSPAL.length]}" aria-label="Open ${esc(b.title)}" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}"><div class="bk-3d"><div class="bk-f bk-cover"><img src="${b.cover}" alt="${esc(b.title)} cover" draggable="false"></div><div class="bk-f bk-back"></div><div class="bk-f bk-spine"><span>${esc(b.title)}</span><i>${esc(b.writer)}</i></div><div class="bk-f bk-pages"></div><div class="bk-f bk-top"></div><div class="bk-f bk-bot"></div></div><div class="bk-tip"><b>${esc(b.title)}</b><span>${esc(b.writer)} · ${b.pages} pages · ${sc} scenes</span><em>Click to read</em></div></div>`}).join('')}</div><div class="lsh-plank"></div></div>`}
  return h}
+
+
 function libReader(){const b=LIBSCR[libOpen];if(!b){libOpen=-1;return libShelf()}let n=0,jump='';
  const body=b.blocks.map(([t,x])=>{if(t==='scene'){n++;jump+=`<option value="${n}">${n}. ${esc(x)}</option>`;return `<div class="lsr-scene" id="lsr-${n}">${esc(x)}</div>`}return `<div class="lsr-${t}">${esc(x)}</div>`}).join('');
  return `<div class="card sec lsr-bar"><button data-a="libshelf">${I('back',15)}Shelf</button><div class="lsr-tt"><b>${esc(b.title)}</b><span class="mut">Written by ${esc(b.writer)} · ${b.pages} pages · ${n} scenes</span></div><select onchange="var e=document.getElementById('lsr-'+this.value);if(e)e.scrollIntoView({behavior:'smooth',block:'start'})" aria-label="Jump to scene"><option value="">Jump to scene…</option>${jump}</select></div><div class="lsr-paper"><div class="lsr-title">${esc(b.title)}</div><div class="lsr-by">Written by<br>${esc(b.writer)}</div>${body}<div class="lsr-end">— End of screenplay —</div></div>`}
+
+
 function libSL(){return `${libOpen<0?`<div class="card sec"><h3>Script library</h3><span class="mut">${LIBSCR.length} screenplay${LIBSCR.length==1?'':'s'} on the shelf. Hover a book to see its cover, then click it to read.</span></div>`:''}${libOpen<0?`<div class="lsh">${libShelf()}</div>`:libReader()}<style>
 .lsh{padding:6px 0 0}.lsh-row{position:relative;margin:0 0 26px;padding:74px 18px 0;background:linear-gradient(180deg,var(--tint),transparent 85%);border-radius:14px 14px 0 0;box-shadow:inset 0 14px 22px -18px #0f3d2a55}
 .lsh-books{display:flex;align-items:flex-end;gap:7px;min-height:262px;padding:0 6px 0 96px}
@@ -60,7 +66,11 @@ function libSL(){return `${libOpen<0?`<div class="card sec"><h3>Script library</
 
 
 function libBody(){const tb=[['originals','Pines Original'],['scripts','Script library'],['samples','Sample scripts'],['guide','Formatting guide']];
- const g=`<div class="card sec"><h3>The six building blocks</h3><span class="mut">Read-only reference. Every example is original and sits in the same layout Pines uses.</span></div>${LIBG.map(([h,r,ex])=>`<div class="card sec"><h3>${h}</h3><p class="mut">${r}</p>${libView(ex)}</div>`).join('')}<div class="card sec"><h3>Page and layout basics</h3>${LIBP.map(([a,b])=>rw(a,b,'')).join('')}</div>`;
+ const g=`<div class="card sec"><h3>The six building blocks</h3><span class="mut">Read-only reference. Every example is original and sits in the same layout Pines uses.</span></div>${LIBG.map(([h,r,ex])=>`<div class="card sec"><h3>${h}</h3><p class="mut">${r}</p>${libView(ex)}</div>`).join('')}<div class="card sec"><h3>Page and layout basics</h3>${LIBP.map(([a,b])=>rw(a,b,'')).join('')}</div>`;  
+
+
+${libTab=='originals'?poBody():libTab=='guide'?g:libTab=='scripts'?libSL():sm}
+                   
  const sm=LIBS.map((x,i)=>`<div class="card sec"><h3>${esc(x.t)}</h3><span class="mut">${x.tag}</span>${libView(x.b)}${x.g?`<p class="mut" style="margin-top:10px"><b>English meaning, line by line:</b><br>${x.g.map((l,j)=>(j+1)+'. '+esc(l)).join('<br>')}</p>`:''}<div class="rwb" style="margin-top:12px;flex-wrap:wrap"><button class="pri" data-a="libuse" data-i="${i}">${I('plus',15)}Open as my own copy</button><button data-a="libcopy" data-i="${i}">Copy text</button></div></div>`).join('');
  return `<div class="tabs">${tb.map(([k,n])=>`<button class="${libTab=='originals'&&typeof poBody==='function'?poBody():libTab=='guide'?g:libTab=='samples'?sm:libSL()}
 function lib(){id=null;view='lib';shell(nv('home','','dash','Dashboard',0)+nv('new','','plus','New screenplay',0)+nv('lib','','lib','Library',1)+nv('settings','','gear','Settings',0),`<div class="top"><h1>Library</h1><span class="sp"></span><span class="mut">Read-only reference</span></div>`,libBody())}
